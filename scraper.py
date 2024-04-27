@@ -7,13 +7,13 @@ from urllib.request import urlretrieve
 def download_images(url, folder_path):
     # Send a GET request to the URL
     response = requests.get(url)
-    
+
     # Parse the HTML content
     soup = BeautifulSoup(response.text, 'html.parser')
-    
+
     # Find all img tags
     img_tags = soup.find_all('img')
-    
+    print(img_tags)
     # Create folder to save images if it doesn't exist
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -34,6 +34,6 @@ def download_images(url, folder_path):
         print(f"Downloaded {filename}")
 
 # Example usage
-url = 'https://youtube.com'  # Replace with the URL of the webpage
+url = 'https://www.youtube.com'  # Replace with the URL of the webpage
 folder_path = 'downloaded_images'  # Folder where images will be saved
 download_images(url, folder_path)
